@@ -40,14 +40,15 @@ namespace AutoRules
             {
                 _ = Task.Run(async () =>
                 {
-                    //get role from db, now use config file
-                    config = new Config(@"config.json");
-                    var role = e.Guild.GetRole(config.RoleId);
-
-                    //var role = sender.GetGuildAsync(e.)
                     if (e.PendingBefore.HasValue && e.PendingAfter.HasValue && e.PendingBefore.Value && !e.PendingAfter.Value)
                     {
-                        await e.Member.GrantRoleAsync(role);
+                        var database = new Database(config.Database);
+                        var resultRole = database.GetRole(e.Guild.Id);
+                        if (resultRole != null)
+                        {
+                            var role = e.Guild.GetRole(resultRole.RoleId);
+                            await e.Member.GrantRoleAsync(role);
+                        }
                     }
                 });
 
