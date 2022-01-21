@@ -10,13 +10,15 @@ namespace AutoRules.Objects
         public string Database { get; }
         public string Username { get; }
         public string Password { get; }
+        public string Table { get; }
 
-        public DatabaseConfig(string host, string database, string username, string password)
+        public DatabaseConfig(string host, string database, string username, string password, string table)
         {
             Host = host;
             Database = database;
             Username = username;
             Password = password;
+            Table = table;
         }
     }
 }
