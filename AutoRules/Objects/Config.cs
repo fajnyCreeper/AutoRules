@@ -19,7 +19,7 @@ namespace AutoRules.Objects
             BotToken = configFile["bot_token"].ToString();
 
             var dbConfig = configFile["database"];
-            Database = new Database(dbConfig["host"], dbConfig["database"], dbConfig["username"], dbConfig["password"]);
+            Database = new DatabaseConfig(dbConfig["host"].ToString(), dbConfig["database"].ToString(), dbConfig["username"].ToString(), dbConfig["password"].ToString());
 
             RoleId = ulong.Parse(configFile["role_id"].ToString());
         }
