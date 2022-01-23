@@ -5,6 +5,7 @@ using AutoRules.Objects;
 using DSharpPlus;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
+using DSharpPlus.SlashCommands;
 using Microsoft.Extensions.Logging;
 
 namespace AutoRules
@@ -17,13 +18,6 @@ namespace AutoRules
         static async Task MainAsync()
         {
             var config = new Config(@"config.json");
-
-            /*
-             * Pre-release build only:
-             * Role ID is stored in config, in future, database will be utilized for storing multiple guilds and roles
-             * No command is registered at the moment, but slash commands will be used to register role to be granted
-             * If role is registered and command is fired again, it will overwrite currently registered role
-             */
 
             var discord = new DiscordClient(new DiscordConfiguration() 
             {
@@ -54,6 +48,9 @@ namespace AutoRules
 
                 return Task.CompletedTask;
             };
+
+            var slashCommands = discord.UseSlashCommands(new SlashCommandsConfiguration());
+            slashCommands.RegisterCommands<SlashCommands>();
 
             await discord.ConnectAsync();
             await Task.Delay(-1);
