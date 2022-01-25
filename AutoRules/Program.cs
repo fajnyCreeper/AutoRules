@@ -37,7 +37,7 @@ namespace AutoRules
                         if (resultRole != null)
                         {
                             var role = e.Guild.GetRole(resultRole.RoleId);
-                            await e.Member.GrantRoleAsync(role);
+                            await e.Member.GrantRoleAsync(role, "Passed screening - auto-role");
                         }
                     }
                 });
