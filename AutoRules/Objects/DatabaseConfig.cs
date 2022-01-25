@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AutoRules.Objects
+﻿namespace AutoRules.Objects
 {
     internal class DatabaseConfig
     {
