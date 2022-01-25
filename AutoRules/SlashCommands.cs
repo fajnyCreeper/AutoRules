@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -32,7 +32,7 @@ namespace AutoRules
 
                 await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"Successfully added role!"));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"There was an error adding a role!"));
             }
