@@ -43,5 +43,7 @@ To function, the executable needs to have `config.json` file in same directory t
 }
 ```
 
+This bot is using nightly builds of DSharpPlus. [Tutorial, how to get nightly builds.](https://dsharpplus.github.io/articles/misc/nightly_builds.html)
+
 #### Footnote
 If you are missing some things you would like to see, feel free to [open new issue](https://github.com/fajnyCreeper/AutoRules/issues/new?assignees=&labels=&template=feature_request.md&title=) or contact me on [Discord](https://fjne.eu/discord)
