@@ -1,0 +1,24 @@
+version: {build}
+
+image: Visual Studio 2022
+
+pull_requests:
+  do_not_increment_build_number: true
+
+dotnet_csproj:
+  patch: false
+
+before_build:
+- nuget restore
+
+install:
+- nuget sources add -Name "DSharpPlus Nightly" -Source "https://nuget.emzi0767.com/api/v3/index.json"
+
+build:
+  verbosity: minimal
+
+only_commits:
+  files:
+    - appveyor.yml
+    - '*.sln'
+    - AutoRules/**/*
